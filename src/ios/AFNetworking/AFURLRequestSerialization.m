@@ -1237,7 +1237,7 @@ typedef enum {
         
         NSString *post = [NSString stringWithFormat:@"%@", parameters[@"body"]];
         NSSLog(@"%@", post);
-        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSData* postData = [str dataUsingEncoding:NSUTF8StringEncoding];
         [mutableRequest setHTTPBody: postData];
 //        [mutableRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:parameters options:self.writingOptions error:error]];
         
