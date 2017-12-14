@@ -1230,13 +1230,17 @@ typedef enum {
             [mutableRequest setValue:value forHTTPHeaderField:field];
         }
     }];
-x	|
+    
+    
+    
     if (parameters) {
-        if (![mutableRequest valueForHTTPHeaderField:@"Content-Type"]) {
-            [mutableRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        }
-        [mutableRequest setHTTPBody: [NSString stringWithFormat:@"%@", parameters]];		
-       // [mutableRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:parameters options:self.writingOptions error:error]];
+        
+        NSString *post = [NSString stringWithFormat:@"%@", parameters[@"body"]];
+        NSSLog(@"%@", post);
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        [mutableRequest setHTTPBody: postData];
+//        [mutableRequest setHTTPBody:[NSJSONSerialization dataWithJSONObject:parameters options:self.writingOptions error:error]];
+        
     }
 
     return mutableRequest;

@@ -147,7 +147,7 @@
     manager.securityPolicy = securityPolicy;
 
     NSString *url = [command.arguments objectAtIndex:0];
-    NSDictionary *parameters = [command.arguments objectAtIndex:1];
+
     NSString *serializerName = [command.arguments objectAtIndex:2];
     NSDictionary *headers = [command.arguments objectAtIndex:3];
     NSTimeInterval timeoutInSeconds = [[command.arguments objectAtIndex:4] doubleValue];
