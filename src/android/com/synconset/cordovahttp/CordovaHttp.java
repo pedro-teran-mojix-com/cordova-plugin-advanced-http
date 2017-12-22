@@ -87,9 +87,9 @@ abstract class CordovaHttp {
     }
 
     protected Object getParamsObject() {
-        if (this.params != null && !this.params.isEmpty()) {
+        if (this.params != null && !this.params.toString().isEmpty()) {
         String data = this.params.toString().split(":")[1];
-        data = data.substring(1, data.length-1);
+        data = data.substring(1, data.length()-1);
         return data;
         }
         return this.params;
